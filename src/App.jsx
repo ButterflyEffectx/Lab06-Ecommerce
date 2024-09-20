@@ -94,7 +94,7 @@ const App = () => {
             <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-2">
               {orderHistory.length}
             </span>
-          )}
+          )} 
         </button>
 
         <button
