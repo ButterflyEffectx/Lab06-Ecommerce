@@ -77,7 +77,7 @@ const ProductList = ({ addToCart }) => {
     {
       id: 10,
       name: "หมูเด้ง",
-      price: 13900000,
+      price: 20,
       stock: 1,
       image:
         "https://medias.thansettakij.com/uploads/images/md/2024/09/EdjJciUv9Fkm9gjkXeHh.webp?x-image-process=style/md-webp",
@@ -85,7 +85,7 @@ const ProductList = ({ addToCart }) => {
     {
       id: 11,
       name: "รถหรู",
-      price: 2300000000,
+      price: 1,
       stock: 1,
       image:
         "https://inattt.com/wp-content/uploads/2011/09/nwy-racing-2_15.jpg",
