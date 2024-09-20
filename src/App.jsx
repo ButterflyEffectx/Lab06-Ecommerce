@@ -75,6 +75,7 @@ const App = () => {
   };
 
   const placeOrder = () => {
+    // eslint-disable-next-line no-unused-vars
     const updatedProducts = cartItems.map((item) => {
       return { ...item, stock: item.stock - item.quantity };
     });
@@ -95,7 +96,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (coupon === "CSMJU") {
+    if (coupon.toUpperCase === "CSMJU") {
       setDiscount(total * 0.2);
     } else {
       setDiscount(0);
@@ -200,7 +201,7 @@ const App = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ProductList addToCart={addToCart} />
+        <ProductList  addToCart={addToCart} />
       </div>
     </div>
   );
