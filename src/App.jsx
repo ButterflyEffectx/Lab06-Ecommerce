@@ -94,7 +94,7 @@ const App = () => {
             <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-2">
               {orderHistory.length}
             </span>
-          )} 
+          )}
         </button>
 
         <button
@@ -118,12 +118,14 @@ const App = () => {
               addFromCart={addFromCart}
             />
             {cartItems.length > 0 && (
-              <button
-                onClick={placeOrder}
-                className="bg-green-500 text-white px-4 py-2 mt-4"
-              >
-                Place Order
-              </button>
+              <>
+                <button
+                  onClick={placeOrder}
+                  className="bg-green-500 text-white px-4 py-2 mt-4"
+                >
+                  Place Order
+                </button>
+              </>
             )}
           </div>
         )}
