@@ -89,6 +89,12 @@ const App = () => {
           className="relative"
         >
           <FaHistory className="text-3xl text-white" />
+
+          {orderHistory.length > 0 && (
+            <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-2">
+              {orderHistory.length}
+            </span>
+          )}
         </button>
 
         <button
