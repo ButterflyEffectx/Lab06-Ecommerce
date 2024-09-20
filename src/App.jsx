@@ -152,7 +152,7 @@ const App = () => {
                     id="Coupon"
                     className="mt-2 border border-gray-200 w-full p-2"
                     placeholder='Enter "CSMJU" Coupon 20% cost'
-                    value={coupon}
+                    value={coupon.toUpperCase}
                     onChange={handleCouponChange}
                   />
                 </form>
