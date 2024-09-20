@@ -108,7 +108,7 @@ const App = () => {
 
       <div className="fixed top-0 right-0 mt-1 mx-2 space-x-6 shadow-xl p-3 flex justify-center items-center bg-blue-500 rounded-full z-50">
         <button
-          onClick={() => setIsHistoryVisible(!isHistoryVisible)}
+          onClick={() => {setIsHistoryVisible(!isHistoryVisible); setIsCartVisible(false);}}
           className="relative"
         >
           <FaHistory className="text-3xl text-white" />
@@ -121,7 +121,7 @@ const App = () => {
         </button>
 
         <button
-          onClick={() => setIsCartVisible(!isCartVisible)}
+          onClick={() => {setIsCartVisible(!isCartVisible); setIsHistoryVisible(false);}}
           className="relative"
         >
           <FaShoppingCart className="text-3xl text-white" />
