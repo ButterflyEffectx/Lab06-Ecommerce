@@ -173,7 +173,7 @@ const App = () => {
 
         {isHistoryVisible && (
           <div className="absolute top-16 right-0 w-80 bg-white shadow-lg p-4 border">
-            <h2 className="text-lg font-bold">Order History</h2>
+            <h2 className="text-2xl font-bold">Order History</h2>
             {orderHistory.length > 0 ? (
               <ul>
                 {orderHistory.map((order) => (
