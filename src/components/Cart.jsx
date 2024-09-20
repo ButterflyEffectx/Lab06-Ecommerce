@@ -31,18 +31,25 @@ const Cart = ({ cartItems, removeFromCart, addFromCart }) => {
       ) : (
         <div>
           {cartItems.map((item, index) => (
-            <div key={index} className="border-b p-2 flex justify-between items-center">
-              <p>{item.name} (x{item.quantity}) - ${item.price * item.quantity}</p>
-              <div className=''>
+            <div key={index} className="border-b p-2 flex flex-col justify-between items-center">
+              <p>{item.name} </p>
+              <div className='flex justify-between items-center w-5/6 pt-2'>
                 <button
                   onClick={() => addFromCart(item)}
-                  className="bg-green-500 text-white px-2 py-1 rounded"
+                  className="bg-green-500 text-white px-4 py-1 rounded"
                 >
                   +
                 </button>
+
+
+                <div className="">
+                  <p>(x{item.quantity}) - ${item.price * item.quantity}</p>
+                </div>
+
+
                 <button
                   onClick={() => removeFromCart(item)}
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="bg-red-500 text-white px-4 py-1 rounded"
                 >
                   -
                 </button>
