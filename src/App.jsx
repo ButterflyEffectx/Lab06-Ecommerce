@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cart from "./components/Cart";
 import ProductList from "./components/ProductList";
 import { FaShoppingCart, FaHistory } from "react-icons/fa";
 
 const App = () => {
+  const [coupon, setCoupon] = useState("");
+  const [discount, setDiscount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [orderHistory, setOrderHistory] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [isHistoryVisible, setIsHistoryVisible] = useState(false);
+
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   const generateOrderId = () => `#${Math.floor(Math.random() * 1000000)}`;
 
@@ -79,6 +86,22 @@ const App = () => {
     alert(`Order ${orderId} placed successfully!`);
   };
 
+  const handleCouponChange = (e) => {
+    setCoupon(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    if (coupon === "CSMJU") {
+      setDiscount(total * 0.2);
+    } else {
+      setDiscount(0);
+    }
+  }, [coupon, total]);
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl md:text-4xl font-bold mb-4">CSMJU - SHOP</h1>
@@ -119,6 +142,24 @@ const App = () => {
             />
             {cartItems.length > 0 && (
               <>
+                <div className="font-bold mt-4">
+                  Delivery: 100 / Total: ${total + 100 - discount}
+                </div>
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    type="text"
+                    id="Coupon"
+                    className="mt-2 border border-gray-200 w-full p-2"
+                    placeholder='Enter "CSMJU" Coupon 20% cost'
+                    value={coupon}
+                    onChange={handleCouponChange}
+                  />
+                </form>
+                {discount > 0 && (
+                  <p className="text-green-500">
+                    Coupon applied! You saved ${discount.toFixed(2)}.
+                  </p>
+                )}
                 <button
                   onClick={placeOrder}
                   className="bg-green-500 text-white px-4 py-2 mt-4"
